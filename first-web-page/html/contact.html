@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact Jarod Moser</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+<form action="../php/email.php" method="post">
+	<label><input
+			type="text"
+			name="firstName"
+			placeholder="First Name"
+			required></label>
+	<br><br>
+	<label><input
+			type="text"
+			name="lastName"
+			placeholder="Last Name"
+			required></label>
+	<br><br>
+	<label><input
+			type="email"
+			name="email"
+			placeholder="Email"
+			required></label>
+	<br><br>
+	<label><input
+			type="tel"
+			placeholder="Telephone"
+			pattern="\(?[0-9]{3}[.) \-]*[0-9]{3}[ .\-]?[0-9]{4}"
+			required></label>
+	<br><br>
+    <textarea
+		    name="message"
+		    cols="50"
+		    rows="10"
+		    placeholder="Message"
+		    required></textarea>
+	<br><br>
+	<label><select name="LevelOfInterest" required>
+		<option value="" selected style="display: none">Level of Interest</option>
+		<option value="5">I want to hire you today</option>
+		<option value="4">I want to hire you in the next week</option>
+		<option value="3">I want to hire you in the next month</option>
+		<option value="2">I am interested in talking more with you</option>
+		<option value="1">I think there might be something for you at my company</option>
+	</select></label>
+	<br><br>
+	<input type="submit">
+	<input type="reset">
+</form>
+
+
+</body>
+</html>
