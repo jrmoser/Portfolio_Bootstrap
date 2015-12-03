@@ -2,30 +2,30 @@
  * Created by jarodmoser on 10/9/15.
  */
 
-var accessToken, model, location, playerCount = 0, currentPlayer = 0, currentHole = 0;
+var accessToken = "gAAAAIXTZ5N8F6s3GUS9MnPii0AfJnEw_bzy9FW9RAro2SmP2C9nK60gj2F1LcfGafsWwENYxsRMbxAIq2jId9M3ACmgmiIXy2zkUvqyVtPtNqxIH4POQBbQVaMO19QI5DxyNS8J_k2XRcMT7CLvi1SN-T3VFkg9pMht3FBkK_bkE5AfFAEAAIAAAAB5y5Debn9y7AQ3ryTOs2YNASMkuMtXELc2ZhWQ5_KLlGGkqJyN8zfS8khwDoJK_pDnHfSGYF1ybLjyBQDB3tPaa0XuTtw14iY9iG74eCHNvBnaLSPFx0KTig0PGU9-h9sTnounM1KwsUDpI416elwehcBjP52i2oI_FvJKYydAnZOofrWKPIJt75DpSZ1sWkq3hggnfo1YBFUxLDnN2cYPrmS1f11Kcja8IwDNreHRoFz8DCzNYSdZh84E8GjMe1t1BtlkidqYOvkTUQhkc_mLSY2isGLOku13Q2Lyja8d2IGZI3b1-B53T-_rQdIbnNneLDJVytKgxsqct_9Q3uk4H573d86iFp-oj5EGGpa_8Q", model, location, playerCount = 0, currentPlayer = 0, currentHole = 0;
 
 //map info functions
-function validateSwingBySwing() {
-	var redirectURI = document.URL;
-	var cliendId = "2a1d8689-9ba9-4864-8ae9-632cd44e793e";
-	var swingBySwing = "https://api.swingbyswing.com/v2/oauth/authorize?scope=read&redirect_uri=" + redirectURI + "&response_type=token&client_id=" + cliendId;
-	accessToken = getUrlVars().access_token;
-	if (accessToken == null) {
-		location.replace(swingBySwing);
-	} else {
-		accessToken = accessToken.replace("\n", "");
-		getCourse(48802); // default course if no course was selected
-	}
-}
+//function validateSwingBySwing() {
+//	var redirectURI = document.URL;
+//	var cliendId = "2a1d8689-9ba9-4864-8ae9-632cd44e793e";
+//	var swingBySwing = "https://api.swingbyswing.com/v2/oauth/authorize?scope=read&redirect_uri=" + redirectURI + "&response_type=token&client_id=" + cliendId;
+//	accessToken = getUrlVars().access_token;
+//	if (accessToken == null) {
+//		location.replace(swingBySwing);
+//	} else {
+//		accessToken = accessToken.replace("\n", "");
+//		getCourse(48802); // default course if no course was selected
+//	}
+//}
 
-function getUrlVars() {
-	var vars = {};
-	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-		function (m, key, value) {
-			vars[key] = value;
-		});
-	return vars;
-}
+//function getUrlVars() {
+//	var vars = {};
+//	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+//		function (m, key, value) {
+//			vars[key] = value;
+//		});
+//	return vars;
+//}
 
 //get course functions
 function getSearchResults() {
