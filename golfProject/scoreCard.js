@@ -7,7 +7,7 @@ var accessToken, model, location, playerCount = 0, currentPlayer = 0, currentHol
 //map info functions
 function validateSwingBySwing() {
 	var redirectURI = document.URL;
-	var cliendId = "38f02085-a586-4abc-a678-cbb84e12ca0a";
+	var cliendId = "9d55313d-9c7c-4544-9722-001a54a7eabd";
 	var swingBySwing = "https://api.swingbyswing.com/v2/oauth/authorize?scope=read&redirect_uri=" + redirectURI + "&response_type=token&client_id=" + cliendId;
 	accessToken = getUrlVars().access_token;
 	if (accessToken == null) {
