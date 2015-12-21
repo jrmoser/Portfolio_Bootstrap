@@ -1,0 +1,15 @@
+<div class="container alert alert-success">
+	<h3>Todo Lists High Priority:</h3>
+	<div ng-repeat="list in lc1.lists">
+		<a ui-sref="list({listIndex: {{$index}}})">
+			<h3>{{list.name}}</h3>
+		</a>
+		<div ng-repeat="item in list.items
+						| filter: {priority: 'High'}
+						| filter: {done: false}">
+			<h6>{{item.todoItem}}</h6>
+		</div>
+	</div>
+	<h4>add new list: <input ng-model="lc1.listName"></h4>
+	<button ng-click="lc1.addList(lc1.listName)">Add</button>
+</div>
