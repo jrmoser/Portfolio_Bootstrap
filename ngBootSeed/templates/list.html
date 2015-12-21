@@ -1,6 +1,9 @@
 <div class="container alert alert-success">
 
-	<h3>Todo for {{ic.lists[ic.listIndex].name}}</h3>
+	<h3>Todo for
+		<span ng-hide="list.editing" ng-click="list.editing = true">{{ic.lists[ic.listIndex].name}}</span>
+		<input ng-show="list.editing" ng-model="list.todoItem" ng-blur="list.editing = false" autofocus/>
+		</h3>
 	<h4>Sort By:
 		<select name="sortby" id="sortby" ng-model="ic.sortBy">
 			<option value="date">Date added</option>

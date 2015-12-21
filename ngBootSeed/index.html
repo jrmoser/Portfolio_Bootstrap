@@ -38,10 +38,12 @@
 				<li ng-class="{ active: nav.isActive('/home')}">
 					<a ui-sref="home">Home</a></li>
 				<li ng-class="{ active: nav.isActive('/list?listIndex={{$index}}')}" ng-repeat="list in lc.lists">
-					<a ui-sref="list({listIndex: {{$index}}})">{{list.name}}</a></li>
+					<a ui-sref="list({listIndex: {{$index}}})">
+						{{list.name}}
+					</a></li>
 				<li>
 					<a href="#" ng-click="lc.inputField = true" ng-hide="lc.inputField === true">+</a>
-					</li>
+				</li>
 				<li>
 					<a href="#" class="addListName" ng-show="lc.inputField">
 						<input class="newListName" ng-model="lc.name">
