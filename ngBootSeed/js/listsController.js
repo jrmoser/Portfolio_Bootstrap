@@ -26,7 +26,7 @@
 			lc.name = undefined;
 
 			//wrapping the $state.go function in another function makes it possible to add list name from the nav bar
-			setTimeout( function () {
+			setTimeout(function () {
 					$state.go('^.list', {listIndex: lc.lists.length - 1});
 				}, 1
 			);

@@ -3,13 +3,12 @@
 	<h3>Todo for
 		<span ng-hide="list.editing" ng-click="list.editing = true">{{ic.lists[ic.listIndex].name}}</span>
 		<input ng-show="list.editing" ng-model="ic.lists[ic.listIndex].name" ng-blur="list.editing = false" autofocus/>
-		</h3>
+	</h3>
 	<h4>Sort By:
 		<select name="sortby" id="sortby" ng-model="ic.sortBy">
 			<option value="date">Date added</option>
 			<option value="priority">Priority</option>
 		</select>
-
 
 	</h4>
 	<div ng-repeat='item in ic.lists[ic.listIndex].items
@@ -23,7 +22,8 @@
 			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
 			<!--http://stackoverflow.com/questions/21794575/how-to-make-a-double-click-editable-table-in-angularjs-way-->
 			<span ng-hide="item.editing" ng-click="item.editing = true">{{item.todoItem}}</span>
-			<input ng-show="item.editing" ng-focus="item.todoItem.select()" ng-model="item.todoItem" ng-blur="item.editing = false" autofocus/>
+			<input ng-show="item.editing" ng-focus="item.todoItem.select()" ng-model="item.todoItem"
+			       ng-blur="item.editing = false" autofocus/>
 		</span>
 	</div>
 	<h4>add item: <input ng-model="ic.item"></h4>

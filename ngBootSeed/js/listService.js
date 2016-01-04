@@ -19,7 +19,7 @@
 		ls.changePriority = changePriority;
 
 		function addList(listName) {
-			if (listName === undefined){
+			if (listName === undefined) {
 				return;
 			}
 
