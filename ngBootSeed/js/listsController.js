@@ -7,30 +7,21 @@
 	angular.module('listsController', [])
 		.controller('listsController', listsController);
 
-	listsController.$inject = ['$state'];
+	listsController.$inject = ['$state', 'listService'];
 
-	function listsController($state) {
+	function listsController($state, listService) {
 
 		// list everything
 		var lc = this;
 		lc.listName = '';
 		lc.addList = addList;
 		lc.removeList = removeList;
-
-		// makes global var accessible in this controller
-		lc.lists = lists;
+		lc.lists = listService.lists;
 
 		// define functions
 		function addList(listName) {
-			if (listName === undefined){
-				return;
-			}
 
-			lists.push({
-				name: listName,
-				items: []
-			});
-
+			listService.addList(listName);
 
 			lc.name = undefined;
 
@@ -38,11 +29,7 @@
 			setTimeout( function () {
 					$state.go('^.list', {listIndex: lc.lists.length - 1});
 				}, 1
-
 			);
-
-
-
 		}
 
 		function removeList() {

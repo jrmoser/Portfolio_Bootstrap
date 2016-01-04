@@ -2,13 +2,11 @@
  * Created by jarodmoser on 12/11/15.
  */
 
-var lists = [];
-
 (function () {
 	'use strict';
 
 	angular.module('listService', [])
-		.controller('listService', listService);
+		.service('listService', listService);
 
 	listService.$inject = [];
 
@@ -51,8 +49,6 @@ var lists = [];
 				deleted: false,
 				editing: false
 			});
-
-			ls.item = undefined;
 		}
 
 		function removeItem(item, listIndex) {
@@ -70,5 +66,3 @@ var lists = [];
 	}
 
 }());
-
-//var lists = [];

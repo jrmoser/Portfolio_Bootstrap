@@ -7,9 +7,9 @@
 	angular.module('itemsController', [])
 		.controller('itemsController', itemsController);
 
-	itemsController.$inject = ['$location'];
+	itemsController.$inject = ['$location', 'listService'];
 
-	function itemsController($location) {
+	function itemsController($location, listService) {
 
 		// list everything
 		var ic = this;
@@ -18,46 +18,21 @@
 		ic.changePriority = changePriority;
 		ic.listIndex = $location.url();
 		ic.listIndex = ic.listIndex.substr(ic.listIndex.length - 1);
-
-		// makes global var accessible in this controller
-		ic.lists = lists;
-		ic.itemsArray = ic.lists[ic.listIndex].items;
+		ic.lists = listService.lists;
 
 		// define functions
 		function addItem(item, priority) {
-			if (item === undefined) {
-				return;
-			}
-			item = item.trim();
-			if (item === ''){
-				return;
-			}
-
-			ic.itemsArray.push({
-				priority: priority,
-				todoItem: item,
-				done: false,
-				dateAdded: new Date(),
-				archived: false,
-				dateArchived: '',
-				deleted: false,
-				editing: false
-			});
+			listService.addItem(item, priority, ic.listIndex);
 
 			ic.item = undefined;
 		}
 
 		function removeItem(item) {
-			item.deleted = !item.done;
-			item.archived = item.done;
-			lists[ic.listIndex].items = ic.itemsArray.filter(function (element){
-				return !element.deleted;
-			});
+			listService.removeItem(item, ic.listIndex);
 		}
 
 		function changePriority(item) {
-			// Cycle through priority
-			item.priority = item.priority === 'High' ? 'Med' : item.priority === 'Med' ? 'Low' : 'High';
+			listService.changePriority(item);
 		}
 	}
 
