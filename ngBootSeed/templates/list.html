@@ -13,7 +13,6 @@
 	</h4>
 	<div ng-repeat='item in ic.lists[ic.listIndex].items
 					| orderBy: ic.sortBy
-					| filter: {deleted: false}
 					| filter: {archived: false}'>
 		<a href="" ng-click="ic.removeItem(item)" class="glyphicon glyphicon-trash"
 		   ng-class="{ 'glyphicon-folder-open': item.done, 'alert-danger': !item.done }"></a>

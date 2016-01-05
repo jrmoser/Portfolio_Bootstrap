@@ -25,6 +25,7 @@
 
 			ls.lists.push({
 				name: listName,
+				deleted: false,
 				items: []
 			});
 
