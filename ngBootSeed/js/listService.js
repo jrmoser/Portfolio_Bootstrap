@@ -54,7 +54,7 @@
 		function removeItem(item, listIndex) {
 			item.deleted = !item.done;
 			item.archived = item.done;
-			ls.lists[listIndex].items = ls.itemsArray.filter(function (element) {
+			ls.lists[listIndex].items = ls.lists[listIndex].items.filter(function (element) {
 				return !element.deleted;
 			});
 		}
