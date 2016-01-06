@@ -16,6 +16,7 @@
 		ls.addItem = addItem;
 		ls.addList = addList;
 		ls.removeItem = removeItem;
+		ls.removeList = removeList;
 		ls.changePriority = changePriority;
 
 		function addList(listName) {
@@ -24,11 +25,22 @@
 			}
 
 			ls.lists.push({
+				archived: false,
 				name: listName,
 				deleted: false,
+				done: false,
+				dateAdded: new Date(),
 				items: []
 			});
 
+		}
+
+		function removeList(list) {
+			list.deleted = !list.done;
+			list.archived = list.done;
+			ls.lists = ls.lists.filter(function (element) {
+				return !element.deleted;
+			});
 		}
 
 		function addItem(item, priority, listIndex) {
@@ -64,6 +76,7 @@
 			// Cycle through priority
 			item.priority = item.priority === 'High' ? 'Med' : item.priority === 'Med' ? 'Low' : 'High';
 		}
+
 	}
 
 }());

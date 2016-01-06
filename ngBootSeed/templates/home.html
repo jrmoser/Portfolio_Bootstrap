@@ -2,7 +2,11 @@
 	<h3>Todo Lists High Priority:</h3>
 	<div ng-repeat="list in lc1.lists">
 		<a ui-sref="list({listIndex: {{$index}}})">
-			<h3>{{list.name}}</h3>
+			<a href="" ng-click="lc1.removeList(list)" class="glyphicon glyphicon-trash"
+			   ng-class="{ 'glyphicon-folder-open': list.done, 'alert-danger': !list.done }"></a>
+			<input type="checkbox" ng-model="list.done"/>
+		<span ng-class="{ done: list.done}">
+			<h3>{{list.name}}</h3></span>
 		</a>
 		<div ng-repeat="item in list.items
 						| filter: {priority: 'High'}

@@ -13,7 +13,6 @@
 
 		// list everything
 		var lc = this;
-		lc.listName = '';
 		lc.addList = addList;
 		lc.removeList = removeList;
 		lc.lists = listService.lists;
@@ -32,8 +31,8 @@
 			);
 		}
 
-		function removeList() {
-			//this will remove a to do list
+		function removeList(listName) {
+			listService.removeList(listName);
 		}
 	}
 
