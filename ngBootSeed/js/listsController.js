@@ -19,10 +19,13 @@
 
 		// define functions
 		function addList(listName) {
+			if (listName === undefined) {
+				return;
+			}
 
 			listService.addList(listName);
 
-			lc.name = undefined;
+			lc.listName = undefined;
 
 			//wrapping the $state.go function in another function makes it possible to add list name from the nav bar
 			setTimeout(function () {
@@ -33,6 +36,7 @@
 
 		function removeList(listName) {
 			listService.removeList(listName);
+			lc.lists = listService.lists;
 		}
 	}
 

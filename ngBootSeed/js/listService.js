@@ -20,16 +20,11 @@
 		ls.changePriority = changePriority;
 
 		function addList(listName) {
-			if (listName === undefined) {
-				return;
-			}
-
 			ls.lists.push({
 				archived: false,
 				name: listName,
 				deleted: false,
 				done: false,
-				dateAdded: new Date(),
 				items: []
 			});
 
@@ -44,14 +39,6 @@
 		}
 
 		function addItem(item, priority, listIndex) {
-			if (item === undefined) {
-				return;
-			}
-			item = item.trim();
-			if (item === '') {
-				return;
-			}
-
 			ls.lists[listIndex].items.push({
 				priority: priority,
 				todoItem: item,

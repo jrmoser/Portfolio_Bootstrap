@@ -10,10 +10,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body>
+<body ng-controller="listsController as lc">
 
 <!-- Navigation Bar -->
-<nav role="navigation" class="navbar navbar-default" ng-controller="listsController as lc">
+<nav role="navigation" class="navbar navbar-default">
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -26,8 +26,7 @@
 			<a ui-sref="home" class="navbar-brand">Brand</a>
 		</div>
 		<!-- Collection of nav links and other content for toggling -->
-		<div id="navbarCollapse" class="collapse navbar-collapse"
-		     ng-controller="navController as nav">
+		<div id="navbarCollapse" class="collapse navbar-collapse" ng-controller="navController as nav">
 			<ul class="nav navbar-nav">
 				<li ng-class="{ active: nav.isActive('/home')}">
 					<a ui-sref="home">Home</a></li>
@@ -64,6 +63,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 
 <!-- app controller js files -->
+<script src="js/directives.js"></script>
 <script src="js/listService.js"></script>
 <script src="js/itemsController.js"></script>
 <script src="js/listsController.js"></script>

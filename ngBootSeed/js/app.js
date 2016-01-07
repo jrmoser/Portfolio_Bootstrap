@@ -6,6 +6,7 @@
 			"navController",
 			"itemsController",
 			"listsController",
+			"directives",
 			"listService"
 		])
 
@@ -16,7 +17,6 @@
 					.state("home", {
 						url: "/home",
 						templateUrl: "templates/home.html",
-						controller: "listsController as lc1"
 					})
 					.state("list", {
 						url: "/list?listIndex",

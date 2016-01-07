@@ -22,6 +22,14 @@
 
 		// define functions
 		function addItem(item, priority) {
+			if (item === undefined) {
+				return;
+			}
+			item = item.trim();
+			if (item === '') {
+				return;
+			}
+
 			listService.addItem(item, priority, ic.listIndex);
 
 			ic.item = undefined;
