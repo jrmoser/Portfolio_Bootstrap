@@ -13,6 +13,7 @@
 	function listService() {
 		var ls = this;
 		ls.lists = [];
+		ls.index = 0;
 		ls.addItem = addItem;
 		ls.addList = addList;
 		ls.removeItem = removeItem;
@@ -21,12 +22,15 @@
 
 		function addList(listName) {
 			ls.lists.push({
+				index: ls.index,
 				archived: false,
 				name: listName,
 				deleted: false,
 				done: false,
 				items: []
 			});
+
+			ls.index++;
 
 		}
 
@@ -39,7 +43,11 @@
 		}
 
 		function addItem(item, priority, listIndex) {
-			ls.lists[listIndex].items.push({
+			var realListIndex = 0;
+			for(var i = 0; i < ls.lists.length; i++) {
+				realListIndex = ls.lists[i].index === +listIndex ? i : realListIndex;
+			}
+			ls.lists[realListIndex].items.push({
 				priority: priority,
 				todoItem: item,
 				done: false,

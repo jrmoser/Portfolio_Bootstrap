@@ -16,7 +16,7 @@
 		lc.addList = addList;
 		lc.removeList = removeList;
 		lc.lists = listService.lists;
-
+		lc.index = listService.index;
 		// define functions
 		function addList(listName) {
 			if (listName === undefined) {
@@ -29,7 +29,8 @@
 
 			//wrapping the $state.go function in another function makes it possible to add list name from the nav bar
 			setTimeout(function () {
-					$state.go('^.list', {listIndex: lc.lists.length - 1});
+				$state.go('^.list', {listIndex: lc.index});
+				lc.index = listService.index;
 				}, 1
 			);
 		}

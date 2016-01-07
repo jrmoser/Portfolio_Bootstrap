@@ -1,7 +1,7 @@
-<div class="container alert alert-success">
+<div class="container alert alert-success" ng-repeat="list in ic.lists | filter: {index: ic.listIndex}">
 
 	<h3>Todo for
-		<span ng-hide="list.editing" ng-click="list.editing = true">{{ic.lists[ic.listIndex].name}}</span>
+		<span ng-hide="list.editing" ng-click="list.editing = true">{{list.name}}</span>
 		<input ng-show="list.editing" ng-model="ic.lists[ic.listIndex].name" ng-blur="list.editing = false" autofocus/>
 	</h3>
 	<h4>Sort By:
@@ -11,7 +11,7 @@
 		</select>
 
 	</h4>
-	<div ng-repeat='item in ic.lists[ic.listIndex].items
+	<div ng-repeat='item in list.items
 					| orderBy: ic.sortBy
 					| filter: {archived: false}'>
 		<jm-trash-archive type="item"></jm-trash-archive>
