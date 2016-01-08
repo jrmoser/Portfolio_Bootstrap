@@ -13,7 +13,7 @@
 			template: function(elem, attr){
 				var removeListOrItem = attr.type === 'item' ? "ic.removeItem(item)" : attr.type === 'list' ? "lc.removeList(list)" : '';
 				return `<a href="" ng-click=${removeListOrItem} class="glyphicon glyphicon-trash"
-		   ng-class="{ 'glyphicon-folder-open': ${attr.type}.done, 'alert-danger': !${attr.type}.done }"></a>
+		   ng-class="{ 'glyphicon-folder-close': ${attr.type}.done, 'glyphicon-folder-open': ${attr.type}.archived && ${attr.type}.done, 'alert-danger': !${attr.type}.done }"></a>
 		<input type="checkbox" ng-model="${attr.type}.done"/>`
 			}
 		}
