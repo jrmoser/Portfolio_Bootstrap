@@ -1,8 +1,7 @@
 <div class="container alert alert-success" ng-repeat="list in ic.lists | filter: {index: ic.listIndex}">
 
 	<h3>Todo for
-		<span ng-hide="list.editing" ng-click="list.editing = true">{{list.name}}</span>
-		<input ng-show="list.editing" ng-model="ic.lists[ic.listIndex].name" ng-blur="list.editing = false" autofocus/>
+		<jm-editable type="list"></jm-editable>
 	</h3>
 	<h4>Sort By:
 		<select name="sortby" id="sortby" ng-model="ic.sortBy">
@@ -17,11 +16,10 @@
 		<jm-trash-archive type="item"></jm-trash-archive>
 		<span ng-class="{ done: item.done}">
 			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
-			<!--http://stackoverflow.com/questions/21794575/how-to-make-a-double-click-editable-table-in-angularjs-way-->
-			<span ng-hide="item.editing" ng-click="item.editing = true">{{item.todoItem}}</span>
-			<input ng-show="item.editing" ng-model="item.todoItem" ng-blur="item.editing = false" autofocus/>
+		<jm-editable type="item"></jm-editable>
 		</span>
 	</div>
+	<jm-not-the-droids></jm-not-the-droids>
 	<h4>add item: <input ng-model="ic.item"></h4>
 	<button class="btn btn-danger btn-sm" ng-click="ic.addItem(ic.item, 'High')">High</button>
 	<button class="btn btn-warning btn-sm" ng-click="ic.addItem(ic.item, 'Med')">Med</button>

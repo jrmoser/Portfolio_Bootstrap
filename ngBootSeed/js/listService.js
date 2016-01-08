@@ -28,6 +28,14 @@
 			$localStorage.index = ls.index;
 		}
 
+		function indexAdjustment(index){
+			var realListIndex = 0;
+			for(var i = 0; i < ls.lists.length; i++) {
+				realListIndex = ls.lists[i].index === +index ? i : realListIndex;
+			}
+			return realListIndex;
+		}
+
 		function addList(listName) {
 			ls.lists.push({
 				index: ls.index,
@@ -52,13 +60,10 @@
 		}
 
 		function addItem(item, priority, listIndex) {
-			var realListIndex = 0;
-			for(var i = 0; i < ls.lists.length; i++) {
-				realListIndex = ls.lists[i].index === +listIndex ? i : realListIndex;
-			}
+			var realListIndex = indexAdjustment(listIndex);
 			ls.lists[realListIndex].items.push({
 				priority: priority,
-				todoItem: item,
+				name: item,
 				done: false,
 				dateAdded: new Date(),
 				archived: false,
@@ -70,9 +75,10 @@
 		}
 
 		function removeItem(item, listIndex) {
+			var realListIndex = indexAdjustment(listIndex);
 			item.deleted = !item.done;
 			item.archived = item.done;
-			ls.lists[listIndex].items = ls.lists[listIndex].items.filter(function (element) {
+			ls.lists[realListIndex].items = ls.lists[realListIndex].items.filter(function (element) {
 				return !element.deleted;
 			});
 			storage();
@@ -83,7 +89,5 @@
 			item.priority = item.priority === 'High' ? 'Med' : item.priority === 'Med' ? 'Low' : 'High';
 			storage();
 		}
-
 	}
-
 }());

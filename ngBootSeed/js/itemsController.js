@@ -17,7 +17,8 @@
 		ic.removeItem = removeItem;
 		ic.changePriority = changePriority;
 		ic.listIndex = $location.url();
-		ic.listIndex = ic.listIndex.substr(ic.listIndex.length - 1);
+		ic.equalsIndex = ic.listIndex.indexOf('=');
+		ic.listIndex = ic.listIndex.substr(ic.equalsIndex + 1);
 		ic.lists = listService.lists;
 
 		// define functions
