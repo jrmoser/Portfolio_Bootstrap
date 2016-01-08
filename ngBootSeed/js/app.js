@@ -16,7 +16,7 @@
 				$stateProvider
 					.state("home", {
 						url: "/home",
-						templateUrl: "templates/home.html",
+						templateUrl: "templates/home.html"
 					})
 					.state("list", {
 						url: "/list?listIndex",
@@ -26,10 +26,14 @@
 					.state("about", {
 						url: "/about",
 						templateUrl: "templates/about.html"
+					})
+					.state("archived", {
+						url: "/archived",
+						templateUrl: "templates/archived.html"
 					});
 
 				// if none of the above states are matched, use this as the fallback
-				//$urlRouterProvider.otherwise("/home");
+				$urlRouterProvider.otherwise("/about");
 			}]);
 
 }());

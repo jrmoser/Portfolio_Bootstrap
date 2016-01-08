@@ -30,7 +30,7 @@
 			<ul class="nav navbar-nav">
 				<li ng-class="{ active: nav.isActive('/home')}">
 					<a ui-sref="home">Home</a></li>
-				<li ng-class="{ active: nav.isActive('/list?listIndex={{list.index}}')}" ng-repeat="list in lc.lists">
+				<li ng-class="{ active: nav.isActive('/list?listIndex={{list.index}}')}" ng-repeat="list in lc.lists | filter: {archived: false}">
 					<a ui-sref="list({listIndex: {{list.index}}})">
 						{{list.name}}
 					</a></li>
@@ -45,7 +45,8 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<!--<li><a ui-sref="login">Login</a></li>-->
+				<li ng-class="{ active: nav.isActive('/archived')}">
+					<a ui-sref="archived">Archived</a></li>
 				<li ng-class="{ active: nav.isActive('/about')}">
 					<a ui-sref="about">About</a></li>
 			</ul>

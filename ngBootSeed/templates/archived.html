@@ -1,0 +1,23 @@
+<div class="container alert alert-warning">
+	<h3>Archived Items:</h3>
+	<div ng-repeat="list in lc.lists | filter: {archived: true}">
+		<h3>
+			<jm-trash-archive type="list"></jm-trash-archive>
+			<span ng-class="{ done: list.done}">
+				<a ui-sref="list({listIndex: {{list.index}}})">
+					{{list.name}}
+				</a>
+			</span>
+		</h3>
+		<div ng-repeat="item in list.items
+						| filter: {archived: true}">
+			<jm-trash-archive type="item"></jm-trash-archive>
+			<span ng-class="{ done: item.done}">
+				<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
+				<!--http://stackoverflow.com/questions/21794575/how-to-make-a-double-click-editable-table-in-angularjs-way-->
+				<span ng-hide="item.editing" ng-click="item.editing = true">{{item.todoItem}}</span>
+				<input ng-show="item.editing" ng-model="item.todoItem" ng-blur="item.editing = false" autofocus/>
+			</span>
+		</div>
+	</div>
+</div>
