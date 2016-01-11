@@ -10,7 +10,7 @@
 		</select>
 
 	</h4>
-	<div ng-repeat='item in list.items
+	<div class="animate-repeat" ng-repeat='item in list.items
 					| orderBy: ic.sortBy
 					| filter: {archived: false}'>
 		<jm-trash-archive type="item"></jm-trash-archive>

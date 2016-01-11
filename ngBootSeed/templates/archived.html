@@ -5,14 +5,14 @@
 			<jm-trash-archive type="list"></jm-trash-archive>
 			<span ng-class="{ done: list.done}">
 				<a ui-sref="list({listIndex: {{list.index}}})">
-					{{list.name}}
+					{{list.name | uppercaseFirstLetter}}
 				</a>
 			</span>
 		</h3>
 		<div ng-repeat="item in list.items
 						| filter: {archived: true}">
 			<jm-trash-archive type="item"></jm-trash-archive>
-			<span ng-class="{ done: item.done}">{{item.name}}</span>
+			<span ng-class="{ done: item.done}">{{item.name | uppercaseFirstLetter}}</span>
 		</div>
 	</div>
 </div>

@@ -7,6 +7,7 @@
 			"itemsController",
 			"listsController",
 			"directives",
+			"filters",
 			"listService",
 			"ngAnimate"
 		])

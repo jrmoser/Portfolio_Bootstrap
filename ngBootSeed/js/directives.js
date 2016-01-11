@@ -1,6 +1,3 @@
-/**
- * Created by jarodmoser on 12/11/15.
- */
 (function () {
 	'use strict';
 
@@ -34,7 +31,7 @@
 			scope: {
 				type: '='
 			},
-			template: '<span ng-hide="type.editing" ng-click="type.editing = true">{{type.name}}</span><input ng-show="type.editing" ng-model="type.name" ng-blur="type.editing = false" autofocus/>'
+			template: '<span ng-hide="type.editing" ng-click="type.editing = true">{{type.name | uppercaseFirstLetter}}</span><input ng-show="type.editing" ng-model="type.name" ng-blur="type.editing = false" autofocus/>'
 			//  http://stackoverflow.com/questions/21794575/how-to-make-a-double-click-editable-table-in-angularjs-way
 		}
 	}

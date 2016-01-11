@@ -5,14 +5,14 @@
 			<jm-trash-archive type="list"></jm-trash-archive>
 			<span ng-class="{ done: list.done}">
 				<a ui-sref="list({listIndex: {{list.index}}})">
-					{{list.name}}
+					{{list.name | uppercaseFirstLetter}}
 				</a>
 			</span>
 		</h3>
 		<div ng-repeat="item in list.items
 						| filter: {priority: 'High'}
 						| filter: {done: false}">
-			<h5>{{item.name}}</h5>
+			<h5>{{item.name | uppercaseFirstLetter}}</h5>
 		</div>
 	</div>
 	<h4>add new list: <input ng-model="lc.listName" ng-required="true"></h4>
