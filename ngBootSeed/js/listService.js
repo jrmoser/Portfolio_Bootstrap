@@ -27,14 +27,14 @@
 		function indexAdjustment(index){
 			var realListIndex = 0;
 			for(var i = 0; i < ls.lists.length; i++) {
-				realListIndex = ls.lists[i].index === +index ? i : realListIndex;
+				realListIndex = ls.lists[i].index === index ? i : realListIndex + '';
 			}
 			return realListIndex;
 		}
 
 		function addList(listName) {
 			ls.lists.push({
-				index: ls.index,
+				index: ls.index + '',
 				archived: false,
 				name: listName,
 				deleted: false,

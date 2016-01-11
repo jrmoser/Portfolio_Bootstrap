@@ -16,7 +16,10 @@
 				<li ng-class="{ active: nav.isActive('/home')}">
 					<a ui-sref="home">Home</a></li>
 				<li class="animate-repeat" ng-class="{ active: nav.isActive('/list?listIndex={{list.index}}')}" ng-repeat="list in lc.lists | filter: {archived: false}">
-					<a ui-sref="list({listIndex: {{list.index}}})">
+					<a ui-sref="list({listIndex: {{list.index}}})" class="hidden-xs">
+						{{list.name | uppercaseFirstLetter}}
+					</a>
+					<a ui-sref="list({listIndex: {{list.index}}})" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
 						{{list.name | uppercaseFirstLetter}}
 					</a></li>
 				<li>

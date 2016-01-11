@@ -1,4 +1,4 @@
-<div class="container alert alert-success" ng-repeat="list in ic.lists | filter: {index: ic.listIndex}">
+<div class="container alert alert-success" ng-repeat="list in ic.lists | filter: {index: ic.listIndex} : true">
 
 	<h3>Todo for
 		<jm-editable type="list"></jm-editable>

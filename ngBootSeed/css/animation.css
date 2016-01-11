@@ -1,4 +1,6 @@
-
+/*
+ Took this bit from the example on https://docs.angularjs.org/api/ng/directive/ngRepeat#animations
+*/
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter,
 .animate-repeat.ng-leave {
@@ -17,4 +19,52 @@
 .animate-repeat.ng-enter.ng-enter-active {
 	opacity:1;
 	max-height:40px;
+}
+
+/*
+Took this bit from https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-animate-ui-view-with-ng-animate
+and adjusted to move down instead of to the right
+*/
+
+.ui-view-container {
+	position: relative;
+	/*height: 65px;*/
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+	position: absolute;
+	left: 0;
+	right: 0;
+	-webkit-transition:all .5s ease-in-out;
+	-moz-transition:all .5s ease-in-out;
+	-o-transition:all .5s ease-in-out;
+	transition:all .5s ease-in-out;
+}
+
+[ui-view].ng-enter {
+	opacity: 0;
+	-webkit-transform:scale3d(0.5, 0.5, 0.5);
+	-moz-transform:scale3d(0.5, 0.5, 0.5);
+	transform:scale3d(0.5, 0.5, 0.5);
+}
+
+[ui-view].ng-enter-active {
+	opacity: 1;
+	-webkit-transform:scale3d(1, 1, 1);
+	-moz-transform:scale3d(1, 1, 1);
+	transform:scale3d(1, 1, 1);
+}
+
+[ui-view].ng-leave {
+	opacity: 1;
+	-webkit-transform:translate3d(0, 0, 0);
+	-moz-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+}
+
+[ui-view].ng-leave-active {
+	opacity: 0;
+	-webkit-transform:translate3d(0, 100px, 0);
+	-moz-transform:translate3d(0, 100px, 0);
+	transform:translate3d(0, 100px, 0);
 }
