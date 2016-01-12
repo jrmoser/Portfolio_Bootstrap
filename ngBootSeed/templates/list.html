@@ -1,18 +1,20 @@
 <div class="container alert alert-success" ng-repeat="list in ic.lists | filter: {index: ic.listIndex} : true">
 
-	<h3>Todo for
+	<h3>{{'LISTTITLE' | translate}}
 		<jm-editable type="list"></jm-editable>
 	</h3>
-	<h4>Sort By:
+	<h4>{{'SORT' | translate}}
 		<select name="sortby" id="sortby" ng-model="ic.sortBy">
-			<option value="date">Date added</option>
-			<option value="priority">Priority</option>
+			<option value="date">{{'DATE' | translate}}</option>
+			<option value="priority">{{'PRIORITY' | translate}}</option>
 		</select>
-
+	</h4>
+	<h4>
+		{{'SHOWARCHIVED' | translate}} <input type="checkbox" ng-model="ic.archived">
 	</h4>
 	<div class="animate-repeat" ng-repeat='item in list.items
 					| orderBy: ic.sortBy
-					| filter: {archived: false}'>
+					| filter: {archived: ic.archived || false} as archived'>
 		<jm-trash-archive type="item"></jm-trash-archive>
 		<span ng-class="{ done: item.done}">
 			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
@@ -20,7 +22,7 @@
 		</span>
 	</div>
 	<jm-not-the-droids></jm-not-the-droids>
-	<h4>add item: <input ng-model="ic.item"></h4>
+	<h4>{{'ADDITEM' | translate}} <input ng-model="ic.item"></h4>
 	<button class="btn btn-danger btn-sm" ng-click="ic.addItem(ic.item, 'High')">High</button>
 	<button class="btn btn-warning btn-sm" ng-click="ic.addItem(ic.item, 'Med')">Med</button>
 	<button class="btn btn-success btn-sm" ng-click="ic.addItem(ic.item, 'Low')">Low</button>

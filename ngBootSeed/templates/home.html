@@ -1,5 +1,5 @@
 <div class="container alert alert-danger">
-	<h3>Todo Lists High Priority:</h3>
+	<h3>{{'HOMETITLE' | translate}}</h3>
 	<div class="animate-repeat"  ng-repeat="list in lc.lists | filter: {archived: false}">
 		<h3>
 			<jm-trash-archive type="list"></jm-trash-archive>
@@ -15,6 +15,6 @@
 			<h5>{{item.name | uppercaseFirstLetter}}</h5>
 		</div>
 	</div>
-	<h4>add new list: <input ng-model="lc.listName" ng-required="true"></h4>
+	<h4>{{'ADDLIST' | translate}} <input ng-model="lc.listName" ng-required="true"></h4>
 	<button class="btn btn-default btn-sm" ng-click="lc.addList(lc.listName)">Add</button>
 </div>

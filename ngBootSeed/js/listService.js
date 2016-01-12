@@ -10,7 +10,6 @@
 
 	function listService($localStorage) {
 		var ls = this;
-
 		ls.lists = $localStorage.lists ? $localStorage.lists : [];
 		ls.index = $localStorage.index ? $localStorage.index : 0;
 		ls.addItem = addItem;
@@ -25,6 +24,7 @@
 		}
 
 		function indexAdjustment(index){
+			//I know it's quirky, but I had to mess with these indexes so that I could continue to use the parameters that I passed into the ui-router for the list view.
 			var realListIndex = 0;
 			for(var i = 0; i < ls.lists.length; i++) {
 				realListIndex = ls.lists[i].index === index ? i : realListIndex + '';
@@ -48,7 +48,7 @@
 
 		function removeList(list) {
 			list.deleted = !list.done;
-			list.archived = list.done;
+			list.archived = list.archived ? false : list.done;
 			ls.lists = ls.lists.filter(function (element) {
 				return !element.deleted;
 			});
@@ -73,7 +73,7 @@
 		function removeItem(item, listIndex) {
 			var realListIndex = indexAdjustment(listIndex);
 			item.deleted = !item.done;
-			item.archived = item.done;
+			item.archived = item.archived ? false : item.done;
 			ls.lists[realListIndex].items = ls.lists[realListIndex].items.filter(function (element) {
 				return !element.deleted;
 			});

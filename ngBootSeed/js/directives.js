@@ -21,7 +21,9 @@
 	function  jmNotTheDroids(){
 		return{
 			restrict: 'EA',
-			template: `<h4 ng-hide="list.items.length"><i class="alert-danger"> There are no items to show </i></h4>`
+			template: `<h4 ng-hide="list.items.length"><i class="alert-danger"> There are no items to show </i></h4>
+			<h4 ng-show="archived.length === 0 && list.items.length > 0 && !ic.archived"><i class="alert-danger"> All items are Archived </i></h4>
+			<h4 ng-show="archived.length === 0 && list.items.length > 0 && ic.archived"><i class="alert-danger"> No items are Archived </i></h4>`
 		}
 	}
 
