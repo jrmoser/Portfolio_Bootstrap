@@ -6,9 +6,9 @@
 	])
 		.service('listService', listService);
 
-	listService.$inject = ['$localStorage'];
+	listService.$inject = ['$localStorage', '$translate'];
 
-	function listService($localStorage) {
+	function listService($localStorage, $translate) {
 		var ls = this;
 		ls.lists = $localStorage.lists ? $localStorage.lists : [];
 		ls.index = $localStorage.index ? $localStorage.index : 0;
@@ -17,6 +17,7 @@
 		ls.removeItem = removeItem;
 		ls.removeList = removeList;
 		ls.changePriority = changePriority;
+		ls.changeLanguage = changeLanguage;
 
 		function storage(){
 			$localStorage.lists = ls.lists;
@@ -82,8 +83,12 @@
 
 		function changePriority(item) {
 			// Cycle through priority
-			item.priority = item.priority === 'High' ? 'Med' : item.priority === 'Med' ? 'Low' : 'High';
+			item.priority = item.priority === 'HIGH' ? 'MED' : item.priority === 'MED' ? 'LOW' : 'HIGH';
 			storage();
+		}
+
+		function changeLanguage(lang) {
+			$translate.use(lang);
 		}
 	}
 }());

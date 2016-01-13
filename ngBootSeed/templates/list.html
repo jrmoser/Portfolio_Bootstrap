@@ -17,13 +17,13 @@
 					| filter: {archived: ic.archived || false} as archived'>
 		<jm-trash-archive type="item"></jm-trash-archive>
 		<span ng-class="{ done: item.done}">
-			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority}}</a>
+			<a href="" ng-click="ic.changePriority(item)" class="button">{{item.priority | translate}}</a>
 		<jm-editable type="item"></jm-editable>
 		</span>
 	</div>
 	<jm-not-the-droids></jm-not-the-droids>
 	<h4>{{'ADDITEM' | translate}} <input ng-model="ic.item"></h4>
-	<button class="btn btn-danger btn-sm" ng-click="ic.addItem(ic.item, 'High')">High</button>
-	<button class="btn btn-warning btn-sm" ng-click="ic.addItem(ic.item, 'Med')">Med</button>
-	<button class="btn btn-success btn-sm" ng-click="ic.addItem(ic.item, 'Low')">Low</button>
+	<button class="btn btn-danger btn-sm" ng-click="ic.addItem(ic.item, 'HIGH')">{{'HIGH' | translate}}</button>
+	<button class="btn btn-warning btn-sm" ng-click="ic.addItem(ic.item, 'MED')">{{'MED' | translate}}</button>
+	<button class="btn btn-success btn-sm" ng-click="ic.addItem(ic.item, 'LOW')">{{'LOW' | translate}}</button>
 </div>

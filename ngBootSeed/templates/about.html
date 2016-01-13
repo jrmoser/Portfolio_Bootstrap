@@ -9,7 +9,9 @@
 
     <p>{{'LANG' | translate}}</p>
 
-	<select name="language" id="language" ng-model="lc.language">
-
+	<select name="language" id="language" ng-model="lc.language" ng-change="lc.changeLanguage(lc.language)">
+		<option ng-value="'en'">English</option>
+		<option ng-value="'sp'">Español</option>
+		<option ng-value="'pl'">Igpay Atinlay</option>
 	</select>
 </div>

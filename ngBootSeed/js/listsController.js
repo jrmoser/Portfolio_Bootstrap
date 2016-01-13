@@ -15,6 +15,7 @@
 		var lc = this;
 		lc.addList = addList;
 		lc.removeList = removeList;
+		lc.changeLanguage = changeLanguage;
 		lc.lists = listService.lists;
 		lc.index = listService.index;
 		// define functions
@@ -38,6 +39,12 @@
 		function removeList(listName) {
 			listService.removeList(listName);
 			lc.lists = listService.lists;
+		}
+
+		// change language, if the about tab gets more functionality, move this to another controller
+
+		function changeLanguage(lang) {
+			listService.changeLanguage(lang);
 		}
 	}
 
