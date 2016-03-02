@@ -183,19 +183,19 @@
       var x = Math.floor((Math.random() * 5));
       var avatar = '';
       if (x === 0) {
-        avatar = '../img/OrangeAvatar.png';
+        avatar = '/avatars/OrangeAvatar.png';
       }
       else if (x === 1) {
-        avatar = '../img/BlueAvatar.png';
+        avatar = '/avatars/BlueAvatar.png';
       }
       else if (x === 2) {
-        avatar = '../img/RedAvatar.png';
+        avatar = '/avatars/RedAvatar.png';
       }
       else if (x === 3) {
-        avatar = '../img/YellowAvatar.png';
+        avatar = '/avatars/YellowAvatar.png';
       }
       else if (x === 4) {
-        avatar = '../img/BlackAvatar.jpg';
+        avatar = '/avatars/BlackAvatar.jpg';
       }
       return avatar;
     }
