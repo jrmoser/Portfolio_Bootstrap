@@ -4,6 +4,8 @@
 	angular.module('golfApp', [
 			"ui.router",
 			"map",
+			"newGame",
+			"overview",
 			"ngMaterial",
 			"ngAnimate"
 		])
